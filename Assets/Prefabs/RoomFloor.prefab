@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 9092723075327420492}
   - component: {fileID: 8763074182199429050}
   - component: {fileID: 4246951516117376509}
+  - component: {fileID: -1514824709994603702}
   m_Layer: 0
   m_Name: RoomFloor
   m_TagString: Untagged
@@ -194,6 +195,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1514824709994603702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4547951193310974924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eea75537a58e5840ab36cd45e88a1aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationDistance: 25
+  canOptimize: 1
 --- !u!1 &5256086796177008318
 GameObject:
   m_ObjectHideFlags: 0

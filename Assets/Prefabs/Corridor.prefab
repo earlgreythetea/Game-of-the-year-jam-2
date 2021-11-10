@@ -200,6 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3170594510755161973}
   - component: {fileID: 2250813093964200883}
+  - component: {fileID: -3034103631917661557}
   m_Layer: 0
   m_Name: Corridor
   m_TagString: Untagged
@@ -266,6 +267,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-3034103631917661557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4366825687615789435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eea75537a58e5840ab36cd45e88a1aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationDistance: 25
+  canOptimize: 1
 --- !u!1 &6380969147855627210
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1762964842373294769}
   - component: {fileID: 7596511245108732750}
   - component: {fileID: 3918099575566439730}
+  - component: {fileID: -5227069380591193078}
   m_Layer: 0
   m_Name: CompositionOffice
   m_TagString: Untagged
@@ -149,6 +150,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabItem: {fileID: 5507792401412502616, guid: aed434e1a11955143b4486a56e940960, type: 3}
+  freeAlarmTimer: 1
+--- !u!114 &-5227069380591193078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458744995362020439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eea75537a58e5840ab36cd45e88a1aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationDistance: 25
 --- !u!1 &8649199957615149272
 GameObject:
   m_ObjectHideFlags: 0
