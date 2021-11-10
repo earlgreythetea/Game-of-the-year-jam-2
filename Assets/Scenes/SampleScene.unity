@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c49364811f3cd42897ebeaf716fefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabFloor: {fileID: 6974164536857175320, guid: 7d25feff6b4e4cb43b488181e11c2eb0, type: 3}
+  prefabFloor: {fileID: 4547951193310974924, guid: 7d25feff6b4e4cb43b488181e11c2eb0, type: 3}
   prefabCorridor: {fileID: 4366825687615789435, guid: 49e8b906b6e81ff439cbe9f81668913d, type: 3}
   prefabRoomDoor: {fileID: 8582605223832871684, guid: a38ecd66adf69af4d9d9efa63d127492, type: 3}
   prefabDoorPanel: {fileID: 9110527217279782753, guid: b3facda14527e69428e01e918aca933f, type: 3}
