@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1744448384063740275}
   - component: {fileID: 7680986672242211730}
   - component: {fileID: 3975773706643288635}
+  - component: {fileID: 4278083217930737446}
   m_Layer: 0
   m_Name: CompositionChaotic
   m_TagString: Untagged
@@ -109,3 +110,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabItem: {fileID: 2114974720537577176, guid: 1b10544a6c9c4d84f94712a07b99487c, type: 3}
+  freeAlarmTimer: 1
+--- !u!114 &4278083217930737446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4066406868112181583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eea75537a58e5840ab36cd45e88a1aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationDistance: 25
+  canOptimize: 0

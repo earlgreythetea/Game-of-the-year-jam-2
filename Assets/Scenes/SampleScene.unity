@@ -614,5 +614,13 @@ PrefabInstance:
       propertyPath: targetCanvas
       value: 
       objectReference: {fileID: 1618212386}
+    - target: {fileID: 5747632147538260903, guid: 4b297309d63890d4aa5258ec6e173010, type: 3}
+      propertyPath: maximumVert
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747632147538260903, guid: 4b297309d63890d4aa5258ec6e173010, type: 3}
+      propertyPath: minimumVert
+      value: -90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b297309d63890d4aa5258ec6e173010, type: 3}

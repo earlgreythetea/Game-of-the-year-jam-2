@@ -20,27 +20,25 @@ public class CompositionRender : MonoBehaviour
 {
     [SerializeField] GameObject prefabItem;
 
-    //Радиус, внутри которого активируются все GameObject
-    public float activationDistance = 25f;
+
     //Задержка перед освобождением предметов в контейнере(в сек)
     public float freeAlarmTimer = 0.5f;
 
-    private GameObject _player;
-    //Проверка, является ли композиция доступной для активации/деактивации
-    private bool _isActive = true; 
+    
+
     private List<Placement> _placements = new List<Placement>();
     private List<GameObject> _placedItems = new List<GameObject>();
     private List<GameObject> _placedParents;
     private bool _itemsGenerated = false;
     //Переменные для метода "освобождения" предмета в контейнере (в силу применения RaycastAll)
     private float _freeAlarm = 0f;
-    
+
     private GameObject _freeParent;
 
     void Start()
     {
         //Находим GameObject игрока для определения центральной координаты для оптимизации комнаты
-        _player = GameObject.Find("Player");
+        
         //Размещение предметов внутри композиции
         StartCoroutine(ItemsPlacer());
     }
@@ -62,35 +60,11 @@ public class CompositionRender : MonoBehaviour
             FreeItems();
             _freeParent = null;
         }
-        //Оптимизация - при расстоянии между игроком и композицией больше чем activationDistance, все GameObject композиции деактивируются и наоборот
-        //Происходит, если в композиции уже размещены все предметы
         if (_itemsGenerated)
-        if (Vector3.Distance(gameObject.transform.position, _player.gameObject.transform.position) < activationDistance)
         {
-            if (!_isActive)
+            if (GetComponent<RenderOptimization>() != null)
             {
-                _isActive = true;
-                gameObject.SetActive(true);
-                gameObject.SetActiveRecursively(true);
-                    foreach (GameObject item in _placedItems)
-                    {
-                        if (item != null)
-                            item.SetActive(true);
-                    }
-            }
-        }
-        else
-        {
-            if (_isActive)
-            {
-                _isActive = false;
-                gameObject.SetActiveRecursively(false);
-                gameObject.SetActive(true);
-                    foreach (GameObject item in _placedItems)
-                    { 
-                        if (item != null)
-                            item.SetActive(false);
-                    }
+                GetComponent<RenderOptimization>().StartOptimizingWithItems(_placedItems);
             }
         }
     }
