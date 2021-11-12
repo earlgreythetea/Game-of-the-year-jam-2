@@ -36,7 +36,8 @@ public class FPSInput: MonoBehaviour
             moveSpeed = moveSpeedInitial * speedAccelerationRate;
         }
         if (_charController.isGrounded) 
-        { 
+        {
+            _animator.SetBool("NotGrounded", false);
             if (Input.GetButtonDown("Jump")) 
             { 
                 _vertSpeed = jumpSpeed; 
@@ -47,28 +48,31 @@ public class FPSInput: MonoBehaviour
             } 
         } 
         else 
-        { 
+        {
+            _animator.SetBool("NotGrounded", true);
             _vertSpeed += gravity * 5 * Time.deltaTime; 
             if (_vertSpeed < terminalVelocity) 
             { 
                 _vertSpeed = terminalVelocity; 
             } 
         }
-       
 
-        float deltaX = Input.GetAxis("Horizontal") * moveSpeed; 
-        float deltaZ = Input.GetAxis("Vertical") * moveSpeed;
-        
-        Vector3 movement = new Vector3(deltaX, 0, deltaZ);
-        movement.x = deltaX * moveSpeed; 
-        movement.z = deltaZ * moveSpeed;
-        _animator.SetFloat("Speed", movement.sqrMagnitude);
-        movement = Vector3.ClampMagnitude(movement, moveSpeed);
-        //movement.y = gravity;
-        movement.y = _vertSpeed; 
+        if (!_animator.GetBool("IsActionPerforming"))
+        {
+            float deltaX = Input.GetAxis("Horizontal") * moveSpeed;
+            float deltaZ = Input.GetAxis("Vertical") * moveSpeed;
 
-        movement *= Time.deltaTime; 
-        movement = transform.TransformDirection(movement); 
-        _charController.Move(movement);
+            Vector3 movement = new Vector3(deltaX, 0, deltaZ);
+            movement.x = deltaX * moveSpeed;
+            movement.z = deltaZ * moveSpeed;
+            _animator.SetFloat("Speed", movement.sqrMagnitude);
+            movement = Vector3.ClampMagnitude(movement, moveSpeed);
+            //movement.y = gravity;
+            movement.y = _vertSpeed;
+
+            movement *= Time.deltaTime;
+            movement = transform.TransformDirection(movement);
+            _charController.Move(movement);
+        }
     }
 }

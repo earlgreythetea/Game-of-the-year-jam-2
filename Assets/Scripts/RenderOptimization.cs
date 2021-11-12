@@ -8,6 +8,7 @@ public class RenderOptimization : MonoBehaviour
     public float activationDistance = 25f;
 
     public bool canOptimize = false;
+    public bool preventOptimization = false;
     private bool _canOptimizeCointainedItems = false;
     private GameObject _player;
     //Проверка, является ли композиция доступной для активации/деактивации
@@ -29,7 +30,7 @@ public class RenderOptimization : MonoBehaviour
     {
         //Оптимизация - при расстоянии между игроком и композицией больше чем activationDistance, все GameObject композиции деактивируются и наоборот
         //Происходит, если в композиции уже размещены все предметы
-        if (canOptimize)
+        if (canOptimize && !preventOptimization)
         {
             if (Vector3.Distance(gameObject.transform.position, _player.gameObject.transform.position) < activationDistance)
             {
@@ -43,7 +44,9 @@ public class RenderOptimization : MonoBehaviour
                         foreach (GameObject item in _placedItems)
                         {
                             if (item != null)
+                            {
                                 item.SetActive(true);
+                            }
                         }
                     gameObject.GetComponent<Renderer>().enabled = true;
                 }
@@ -58,7 +61,9 @@ public class RenderOptimization : MonoBehaviour
                         foreach (GameObject item in _placedItems)
                         {
                             if (item != null)
+                            {
                                 item.SetActive(false);
+                            }
                         }
                     gameObject.GetComponent<Renderer>().enabled = false; //.SetActive(false);
                     gameObject.SetActive(true);

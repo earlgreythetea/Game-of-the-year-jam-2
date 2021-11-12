@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4177024391310897796}
   - component: {fileID: 8213462774693014068}
   - component: {fileID: 8260959318032982073}
+  - component: {fileID: -8776578785141599162}
   m_Layer: 0
   m_Name: Item Card
   m_TagString: Untagged
@@ -110,5 +111,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCollectible: 1
   isOpening: 0
+  isOpeningParent: 0
   isDoorPanel: 0
   opened: 0
+  canTake: 0
+--- !u!114 &-8776578785141599162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5507792401412502616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19bddc51e6e9c44caeb75471e1fe889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Red Card
+  id: 1
+  size: 0
+  capacityMax: 1
+  capacityCurrent: 1
+  breakOnZeroCapacity: 0
+  healingPower: 0
+  boostingPower: 0
+  damage: 0

@@ -281,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationDistance: 25
   canOptimize: 1
+  preventOptimization: 0
 --- !u!1 &6380969147855627210
 GameObject:
   m_ObjectHideFlags: 0

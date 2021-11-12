@@ -25,11 +25,11 @@ public class DoorBehavoir : MonoBehaviour
     public void OpenDoor()
     {
         _isOpen = true;
+        _doorTimer = doorTimerMax;
     }
     public void CloseDoor()
     {
         _isOpen = false;
-        _doorTimer = doorTimerMax;
     }
 
     void Update()
