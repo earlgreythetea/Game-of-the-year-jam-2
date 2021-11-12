@@ -5,7 +5,7 @@ using UnityEngine;
 public class RayShooter : MonoBehaviour
 {
     [SerializeField] Canvas targetCanvas;
-
+    [SerializeField] Animator _animator;
     public float raycastDistance = 2f;
 
     private Camera _camera;
@@ -21,7 +21,11 @@ public class RayShooter : MonoBehaviour
         AudioListener.volume = 0.5f;
 
     }
-
+    IEnumerator ActionEnding(float seconds) //Размещение происходит с небольшой задержкой, чтобы в _placements появились все записи
+    {
+        yield return new WaitForSeconds(seconds);
+        _animator.SetBool("IsActionPerforming", false);
+    }
     void Update()
     {
         
@@ -82,17 +86,22 @@ public class RayShooter : MonoBehaviour
                     {
                         if (target.isCollectible && target.canTake)
                         {
+                            target.CollectItem(hitObject.gameObject);
+                            _animator.SetBool("IsActionPerforming", true);
+                            StartCoroutine(ActionEnding(0.25f));
 
-                            target.SendMessage("CollectItem");
-                            Destroy(hitObject.gameObject);
                         }
                         if ((target.isOpening || target.isOpeningParent) && !target.opened)
                         {
                             target.SendMessage("OpenObject");
+                            _animator.SetBool("IsActionPerforming", true);
+                            StartCoroutine(ActionEnding(0.25f));
                         }
                         if (target.isDoorPanel)
                         {
                             target.SendMessage("UseDoorPanel");
+                            _animator.SetBool("IsActionPerforming", true);
+                            StartCoroutine(ActionEnding(0.25f));
                         }
                     }
                 }
