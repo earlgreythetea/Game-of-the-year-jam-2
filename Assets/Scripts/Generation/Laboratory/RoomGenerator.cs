@@ -154,13 +154,15 @@ public class RoomGenerator : MonoBehaviour
                 }
                 if (i < mapW - 1)
                 {
-                    //Панель в комнате
+                    //Панель в комнате red
                     doorPanelArrayLeft[i, j] = Instantiate(prefabDoorPanel) as GameObject;
+                    doorPanelArrayLeft[i, j].GetComponent<DoorPanelBehavoir>().SetPanel("Red", false);
                     doorPanelArrayLeft[i, j].GetComponent<ReactiveTarget>().SetDoorPanel("roomDoorArrayLeft", i, j);
                     doorPanelArrayLeft[i, j].transform.position = new Vector3((-mapW / 2 * size + size - 1f) + i * size + i * offsetW
                         , 2f, (-mapH / 2 * size + size / 2f) + j * size + j * offsetH - 4f);
                     //Панель в корридоре
                     corridorPanelArrayLeft[i, j] = Instantiate(prefabDoorPanel) as GameObject;
+                    corridorPanelArrayLeft[i, j].GetComponent<DoorPanelBehavoir>().SetPanel("Free", false);
                     corridorPanelArrayLeft[i, j].GetComponent<ReactiveTarget>().SetDoorPanel("roomDoorArrayLeft", i, j);
                     corridorPanelArrayLeft[i, j].transform.position = new Vector3((-mapW / 2 * size + size - 0.25f) + i * size + i * offsetW + offsetW / 4f
                         , 2f, (-mapH / 2 * size + size / 2f) + j * size + j * offsetH + offsetH / 2f - 0.05f);
@@ -175,13 +177,15 @@ public class RoomGenerator : MonoBehaviour
                 }
                 if (i > 0)
                 {
-                    //Панель в комнате
+                    //Панель в комнате blue
                     doorPanelArrayRight[i, j] = Instantiate(prefabDoorPanel) as GameObject;
+                    doorPanelArrayRight[i, j].GetComponent<DoorPanelBehavoir>().SetPanel("Blue", false);
                     doorPanelArrayRight[i, j].GetComponent<ReactiveTarget>().SetDoorPanel("roomDoorArrayRight", i, j);
                     doorPanelArrayRight[i, j].transform.position = new Vector3((-mapW / 2 * size + 1f) + i * size + i * offsetW
                         , 2f, (-mapH / 2 * size + size / 2f) + j * size + j * offsetH + 4f);
                     //Панель в корридоре
                     corridorPanelArrayRight[i, j] = Instantiate(prefabDoorPanel) as GameObject;
+                    corridorPanelArrayRight[i, j].GetComponent<DoorPanelBehavoir>().SetPanel("Free", false);
                     corridorPanelArrayRight[i, j].GetComponent<ReactiveTarget>().SetDoorPanel("roomDoorArrayRight", i, j);
                     corridorPanelArrayRight[i, j].transform.position = new Vector3((-mapW / 2 * size + 0.25f) + i * size + i * offsetW - offsetW / 4f
                         , 2f, (-mapH / 2 * size + size / 2f) + j * size + j * offsetH - offsetH / 2f + 0.05f);
@@ -205,14 +209,16 @@ public class RoomGenerator : MonoBehaviour
                 }
                 if (j < mapH - 1)
                 {
-                    //Панель в комнате
+                    //Панель в комнате green
                     doorPanelArrayUp[i, j] = Instantiate(prefabDoorPanel) as GameObject;
+                    doorPanelArrayUp[i, j].GetComponent<DoorPanelBehavoir>().SetPanel("Green", false);
                     doorPanelArrayUp[i, j].GetComponent<ReactiveTarget>().SetDoorPanel("roomDoorArrayUp", i, j);
                     doorPanelArrayUp[i, j].transform.position = new Vector3((-mapW / 2 * size + size / 2f + 4f) + i * size + i * offsetW
                         , 2f, (-mapH / 2 * size + size - 1f) + j * size + j * offsetH);
                     doorPanelArrayUp[i, j].transform.Rotate(new Vector3(0, 90, 0));
                     //Панель в корридоре
                     corridorPanelArrayUp[i, j] = Instantiate(prefabDoorPanel) as GameObject;
+                    corridorPanelArrayUp[i, j].GetComponent<DoorPanelBehavoir>().SetPanel("Free", false);
                     corridorPanelArrayUp[i, j].GetComponent<ReactiveTarget>().SetDoorPanel("roomDoorArrayUp", i, j);
                     corridorPanelArrayUp[i, j].transform.position = new Vector3((-mapW / 2 * size + size / 2f) + i * size + i * offsetW - offsetW / 2f + 0.05f
                         , 2f, (-mapH / 2 * size + size - 0.25f) + j * size + j * offsetH + offsetH / 4f);
@@ -227,14 +233,16 @@ public class RoomGenerator : MonoBehaviour
                 }
                 if (j > 0)
                 {
-                    //Панель в комнате
+                    //Панель в комнате yellow
                     doorPanelArrayDown[i, j] = Instantiate(prefabDoorPanel) as GameObject;
+                    doorPanelArrayDown[i, j].GetComponent<DoorPanelBehavoir>().SetPanel("Yellow", false);
                     doorPanelArrayDown[i, j].GetComponent<ReactiveTarget>().SetDoorPanel("roomDoorArrayDown", i, j);
                     doorPanelArrayDown[i, j].transform.position = new Vector3((-mapW / 2 * size + size / 2f - 4f) + i * size + i * offsetW
                         , 2f, (-mapH / 2 * size + 1f) + j * size + j * offsetH);
                     doorPanelArrayDown[i, j].transform.Rotate(new Vector3(0, 90, 0));
                     //Панель в корридоре
                     corridorPanelArrayDown[i, j] = Instantiate(prefabDoorPanel) as GameObject;
+                    corridorPanelArrayDown[i, j].GetComponent<DoorPanelBehavoir>().SetPanel("Free", false);
                     corridorPanelArrayDown[i, j].GetComponent<ReactiveTarget>().SetDoorPanel("roomDoorArrayDown", i, j);
                     corridorPanelArrayDown[i, j].transform.position = new Vector3((-mapW / 2 * size + size / 2f) + i * size + i * offsetW + offsetW / 2f - 0.05f
                         , 2f, (-mapH / 2 * size + 0.25f) + j * size + j * offsetH - offsetH / 4f);

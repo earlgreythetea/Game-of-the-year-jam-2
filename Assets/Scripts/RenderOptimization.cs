@@ -5,7 +5,7 @@ using UnityEngine;
 public class RenderOptimization : MonoBehaviour
 {
     //Радиус, внутри которого активируются все GameObject
-    public float activationDistance = 25f;
+    private float _activationDistance;
 
     public bool canOptimize = false;
     public bool preventOptimization = false;
@@ -18,6 +18,7 @@ public class RenderOptimization : MonoBehaviour
     void Start()
     {
         _player = GameObject.Find("Player");
+        _activationDistance = _player.GetComponent<PlayerBehavoir>().activationDistance;
     }
     public void StartOptimizingWithItems(List<GameObject> placedItems)
     {
@@ -32,7 +33,7 @@ public class RenderOptimization : MonoBehaviour
         //Происходит, если в композиции уже размещены все предметы
         if (canOptimize && !preventOptimization)
         {
-            if (Vector3.Distance(gameObject.transform.position, _player.gameObject.transform.position) < activationDistance)
+            if (Vector3.Distance(gameObject.transform.position, _player.gameObject.transform.position) < _activationDistance)
             {
                 if (!_isActive)
                 {

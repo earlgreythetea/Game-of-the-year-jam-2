@@ -1,0 +1,22 @@
+Items:
+0 - noone
+1 - card red
+2 - card blue
+3 - card green
+4 - card yellow
+5 - crowbar
+6 - picklock
+7 - cooling capsule
+8 - handgun
+9 - first aid kit
+10 - energy drink
+11 - geiger counter
+12 - flashlight
+13 - spare parts
+14 - 
+15 - 
+16 - 
+17 - 
+18 - 
+19 - 
+20 - 

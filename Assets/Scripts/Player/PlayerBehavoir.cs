@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBehavoir : MonoBehaviour
 {
+    public float activationDistance;
     [SerializeField] Animator _animator;
     public Item[] inventory = new Item[4];
 

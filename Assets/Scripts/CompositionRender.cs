@@ -34,11 +34,12 @@ public class CompositionRender : MonoBehaviour
     private float _freeAlarm = 0f;
 
     private GameObject _freeParent;
-
+    private Assetter _assetter;
     void Start()
     {
+        _assetter = GameObject.Find("Collector").GetComponent<Assetter>();
         //Находим GameObject игрока для определения центральной координаты для оптимизации комнаты
-        
+
         //Размещение предметов внутри композиции
         StartCoroutine(ItemsPlacer());
     }
@@ -113,11 +114,12 @@ public class CompositionRender : MonoBehaviour
         _placedParents = new List<GameObject>();
         for (int i = 0; i < _placements.Count; i++)
         {
-            GameObject item = Instantiate(prefabItem);
+            GameObject item = Instantiate(ChooseItem(_placements[i]));
             Vector3 mainVector = _placements[i].Position;
             //В вектор обавляется высота предмета для ровного расположения
             mainVector.y += item.GetComponent<Collider>().bounds.max.y;
             item.transform.position = mainVector;
+            item.transform.Rotate(0, _placements[i].Parent.transform.eulerAngles.y, 0);//TEST
             item.GetComponent<ReactiveTarget>().canTake = _placements[i].IsFree;
 
             //В два листа добавляются ссылки на созданный GameObject и его родитель-контейнер (для случаев, когда нужно освободить предмет)
@@ -125,5 +127,11 @@ public class CompositionRender : MonoBehaviour
             _placedParents.Add(_placements[i].Parent);
         }
         _itemsGenerated = true;
+    }
+    GameObject ChooseItem(Placement placement)
+    {
+        GameObject item = _assetter.itemSpareParts;
+        //GameObject item = _assetter.GetItemsCard()[Random.Range(0, _assetter.GetItemsCard().Length)];
+        return item;
     }
 }

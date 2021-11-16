@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1213282954916557900}
   - component: {fileID: 7323053256511841598}
   - component: {fileID: 726107763787486624}
+  - component: {fileID: 4286605593723361873}
   m_Layer: 0
   m_Name: DoorPanel
   m_TagString: Untagged
@@ -127,5 +128,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eea75537a58e5840ab36cd45e88a1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activationDistance: 25
   canOptimize: 1
+  preventOptimization: 0
+--- !u!114 &4286605593723361873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9110527217279782753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60455fc48f642a4fbf58ee3fc984d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  denyTexture: {fileID: 0}
+  acceptTexture: {fileID: 0}
